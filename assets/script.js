@@ -1,21 +1,27 @@
 const input = document.querySelector('input')
-const lista = document.querySelector('ul')
+const lista = document.querySelector('ol')
 
-input.addEventListener('keyup',adicionar)
+input.addEventListener('keypress',(event)=>event.key === 'Enter' && adicionar())
 
-function adicionar(event){
-    if(event.key === 'Enter'){
-               
-        if(!input.value){
+function adicionar(){   
+        const textoInput = input.value.trim()
+        if(!textoInput){
             alert('Digite Algo')
             return
-        }
-        
+        }   
         const novoItem = document.createElement('li')
-        novoItem.innerHTML = input.value
+        novoItem.textContent = textoInput
+
+        const excluirBtn = document.createElement('button')
+        excluirBtn.textContent = 'Excluir'
+
+        excluirBtn.addEventListener('click',()=>excluir(novoItem))
 
         lista.appendChild(novoItem)
-
+        novoItem.appendChild(excluirBtn)
         input.value = ''
-    }
+}
+
+function excluir(item){
+    lista.removeChild(item)
 }

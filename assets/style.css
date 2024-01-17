@@ -23,8 +23,7 @@ main {
     border: 2px solid white;
     border-radius: 1em;
 }
-main ul{
-    list-style:decimal;
+main ol{
     text-align: left;
     margin-bottom: 0.5em;
     padding: 1em;
@@ -32,6 +31,13 @@ main ul{
 main li{
     padding: 1em;
 }
+
+button{
+    float: right;
+    padding: 0.2em;
+    cursor: pointer;
+}
+
 input {
     background-color: #111;
     color: white;
